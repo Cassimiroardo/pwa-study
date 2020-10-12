@@ -1,13 +1,26 @@
 import React from 'react';
-import ButtonsComponent from './components/buttons.component';
+import UserListComponent from './components/user-list.component';
 import RegisterComponent from './components/register.component';
 
+import './styles/app.css'
+import AskPermissionComponent from './components/ask-permission.component';
+
 function App() {
+
   return (
-    <div>
+    <div className="app">
       {
         localStorage.getItem('user') === null ?
-          <RegisterComponent /> : <ButtonsComponent />
+          <RegisterComponent /> : 
+          (
+            <>
+              {
+                Notification.permission !== 'granted' ?
+                    <AskPermissionComponent /> : null
+              }
+              <UserListComponent />
+            </>
+          )
       }
     </div>
   );

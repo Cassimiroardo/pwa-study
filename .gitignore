@@ -4,7 +4,7 @@ client/.pnp
 client/.pnp.js
 
 # production
-/build
+client/build
 
 # misc
 client/.DS_Store

@@ -1,0 +1,15 @@
+.app {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input,
+button {
+  font: 400 14px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 0;
+}

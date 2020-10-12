@@ -1,0 +1,21 @@
+body,
+html {
+  height: 100%;
+  background-color: #3d3d3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h3,
+span,
+button {
+  font-family: courier, arial, helvetica;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  box-sizing: border-box;
+}

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './app';
 import * as serviceWorker from './serviceWorker';
 
+import './styles/index.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -10,4 +12,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.unregister();
+serviceWorker.register();
