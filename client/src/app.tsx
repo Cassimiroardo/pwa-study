@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app">
       {
-        localStorage.getItem('user') === null ?
+        localStorage.getItem('userId') === null ?
           <RegisterComponent /> : 
           (
             <>

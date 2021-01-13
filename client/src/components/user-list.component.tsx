@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { getAllUsers } from '../service/api';
+import { getAllUsers, sendNotification } from '../service/api';
 
 import '../styles/user-list.css'
 
 interface UserItemProp {
-  user: string
+  user: {id: number, user: string}
 }
 
-const UserItemComponent: React.FC<UserItemProp> = ({user}) => {
+const UserItemComponent: React.FC<UserItemProp> = ({ user }) => {
+
+  const handleSendNotification = () => {
+    sendNotification(user.id, Number(localStorage.getItem('userId')))
+  }
+
   return (
     <div className="item-container">
-      <h3 className="item-name">{user}</h3>
-      <button className="item-notification-button">Dizer ola</button>
+      <h3 className="item-name">{user.user}</h3>
+      <button className="item-notification-button" onClick={handleSendNotification}>Dizer ola</button>
     </div>
   )
 }
 
 const UserListComponent: React.FC = () => {
-  const [users, setUsers] = useState<string[]>([])
+  const [users, setUsers] = useState<{id: number, user: string}[]>([])
 
   useEffect(() => {
     (async function anyNameFunction() {
@@ -28,7 +33,9 @@ const UserListComponent: React.FC = () => {
 
   return (
     <div className="list-container">
-      {users.map((user, index) => <UserItemComponent user={user} key={index}/>)}
+      {users.map((user, index) => user.id !== Number(localStorage.getItem('userId')) ?
+      <UserItemComponent user={user} key={index}/> : null
+      )}
     </div>
   );
 }

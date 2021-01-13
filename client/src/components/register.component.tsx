@@ -1,4 +1,4 @@
-import React, {ChangeEvent, MouseEvent, useState} from 'react';
+import React, { ChangeEvent, MouseEvent, useState } from 'react';
 import { signUpUserService } from '../service/api';
 
 import '../styles/register.css'
@@ -10,8 +10,9 @@ const RegisterComponent: React.FC = () => {
   
   const signUpUser = async (event: MouseEvent<HTMLButtonElement>): Promise<void> => {
     event.preventDefault()
-    await signUpUserService(user)
-    localStorage.setItem('user', user)
+    const userId = await signUpUserService(user)
+    localStorage.setItem('userId', String(userId))
+    window.location.reload()
   }
 
   return (

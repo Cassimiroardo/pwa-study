@@ -1,8 +1,8 @@
 import React from 'react';
 import { saveUserSubscription } from '../service/api';
+import { urlBase64ToUint8Array } from '../util';
 
 import '../styles/ask-permission.css'
-import { urlBase64ToUint8Array } from '../util';
 
 const AskPermissionComponent: React.FC = () => {
   const askPermission = async () => {
@@ -16,10 +16,10 @@ const AskPermissionComponent: React.FC = () => {
     
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(''),
+      applicationServerKey: urlBase64ToUint8Array('BNJWjB-7qlW3-ZQMNQ6FZKClH1FpagqK7P-x80xhAvFARm_omnwFtgm0svpFtIdU5vmJvE3zMcqsVFVEF7VRhwM'),
     });
     
-    await saveUserSubscription(String(localStorage.getItem('user')),subscription)
+    await saveUserSubscription(Number(localStorage.getItem('userId')), subscription.toJSON())
 
     window.location.reload()
   }

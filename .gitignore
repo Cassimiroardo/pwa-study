@@ -1,10 +1,12 @@
 # dependencies
 client/node_modules
+server/node_modules
 client/.pnp
 client/.pnp.js
 
 # production
 client/build
+server/dist
 
 # misc
 client/.DS_Store
