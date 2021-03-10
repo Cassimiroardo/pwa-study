@@ -55,7 +55,7 @@
 - sem funcionalidades nativas
 - monetização
 
-# Voltando ao Serivce Worker
+# Voltando ao Service Worker
 
 ## Lifecycle
 
